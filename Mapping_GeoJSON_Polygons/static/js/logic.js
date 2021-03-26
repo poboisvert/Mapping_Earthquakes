@@ -34,8 +34,8 @@ let baseMaps = {
 
 // Create the map object with center, zoom level and default layer.
 let map = L.map("mapid", {
-  center: [30, 30],
-  zoom: 2,
+  center: [43.7, -79.3], // Toronto zoom
+  zoom: 11,
   layers: [dark], // Select the theme dark or streets
 });
 
@@ -43,27 +43,24 @@ let map = L.map("mapid", {
 L.control.layers(baseMaps).addTo(map);
 // Accessing the airport GeoJSON URL
 let torontoHoods =
-  "https://raw.githubusercontent.com/<GitHub_name>/Mapping_Earthquakes/main/torontoNeighborhoods.json";
+  "https://raw.githubusercontent.com/poboisvert/Mapping_Earthquakes/main/torontoNeighborhoods.json";
 
 //console.log(airportData);
 
 // Grabbing our GeoJSON data.
-d3.json(torontoData).then(function (data) {
+d3.json(torontoHoods).then(function (data) {
   console.log(data);
   // Creating a GeoJSON layer with the retrieved data.
   L.geoJson(data, {
     style: {
-      color: "#ffffa1",
-      weight: 2,
+      color: "blue",
+      fillColor: "yellow",
+      weight: 1,
     },
     onEachFeature: function (feature, layer) {
       console.log(layer);
       layer.bindPopup(
-        "<h3>Airline: " +
-          layer.feature.properties.airline +
-          "</h3><hr><h3>Destination: " +
-          layer.feature.properties.dst +
-          "</h3>"
+        "<h3>Neighborhood: " + layer.feature.properties.AREA_NAME + "</h3>"
       );
     },
   }).addTo(map);
