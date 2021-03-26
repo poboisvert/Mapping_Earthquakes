@@ -2,7 +2,7 @@
 console.log("working");
 // Create the map object with a center and zoom level.
 let map = L.map("mapid", {
-  center: [40.7, -94.5],
+  center: [34.0522, -118.2437],
   zoom: 4,
 });
 
@@ -19,3 +19,20 @@ let streets = L.tileLayer(
 
 // Then we add our 'graymap' tile layer to the map.
 streets.addTo(map);
+
+// Marker - London
+var marker = L.marker([51.5, -0.09]).addTo(map);
+
+//  Add a marker to the map for Los Angeles, California.
+//var marker = L.marker([34.0522, -118.2437]).addTo(map);
+L.circle([34.0522, -118.2437], {
+  radius: 1000000,
+  color: "black",
+  fillColor: "#ffffa1",
+}).addTo(map);
+//
+//
+// Documentation
+//
+//
+// https://leafletjs.com/index.html
