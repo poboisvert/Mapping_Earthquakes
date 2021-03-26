@@ -4,10 +4,6 @@ console.log("working");
 // Create the map object with center and zoom level.
 let map = L.map("mapid").setView([30, 30], 2);
 
-// Accessing the airport GeoJSON URL
-let airportData =
-  "https://raw.githubusercontent.com/poboisvert/Mapping_Earthquakes/main/majorAirports.json";
-
 // We create the tile layer that will be the background of our map.
 let streets = L.tileLayer(
   // satellite-streets-v11, streets-v11, etc light-v10 dark-v10
@@ -19,6 +15,12 @@ let streets = L.tileLayer(
     accessToken: API_KEY,
   }
 );
+// Then we add our 'graymap' tile layer to the map.
+streets.addTo(map);
+
+// Accessing the airport GeoJSON URL
+let airportData =
+  "https://raw.githubusercontent.com/poboisvert/Mapping_Earthquakes/main/majorAirports.json";
 
 // Grabbing our GeoJSON data.
 d3.json(airportData).then(function (data) {
@@ -26,6 +28,3 @@ d3.json(airportData).then(function (data) {
   // Creating a GeoJSON layer with the retrieved data.
   L.geoJson(data).addTo(map);
 });
-
-// Then we add our 'graymap' tile layer to the map.
-streets.addTo(map);
