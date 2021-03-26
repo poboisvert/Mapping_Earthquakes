@@ -37,3 +37,4 @@ L.polyline(line, {
 
 // Styling
 // https://leafletjs.com/examples/choropleth/
+// https://docs.mapbox.com/mapbox-gl-js/example/setstyle/
