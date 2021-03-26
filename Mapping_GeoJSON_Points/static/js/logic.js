@@ -15,7 +15,6 @@ let streets = L.tileLayer(
 // Then we add our 'graymap' tile layer to the map.
 // streets.addTo(map);
 
-// Multiple map settings
 // We create the dark view tile layer that will be an option for our map.
 let dark = L.tileLayer(
   "https://api.mapbox.com/styles/v1/mapbox/dark-v10/tiles/{z}/{x}/{y}?access_token={accessToken}",
@@ -44,7 +43,7 @@ let map = L.map("mapid", {
 L.control.layers(baseMaps).addTo(map);
 // Accessing the airport GeoJSON URL
 let airportData =
-  "https://raw.githubusercontent.com/poboisvert/Mapping_Earthquakes/main/majorAirports.json";
+  "https://raw.githubusercontent.com/poboisvert/Mapping_Earthquakes/Mapping_GeoJSON_Points/main/majorAirports.json";
 
 // Confirm import
 console.log(airportData);
