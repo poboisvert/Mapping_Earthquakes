@@ -42,7 +42,7 @@ let map = L.map("mapid", {
 // Pass our map layers into our layers control and add the layers control to the map.
 L.control.layers(baseMaps).addTo(map);
 // Accessing the airport GeoJSON URL
-let airportData =
+let torontoData =
   "https://raw.githubusercontent.com/poboisvert/Mapping_Earthquakes/main/torontoRoutes.json";
 
 //console.log(airportData);
