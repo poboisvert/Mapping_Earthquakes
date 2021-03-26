@@ -43,10 +43,9 @@ let map = L.map("mapid", {
 L.control.layers(baseMaps).addTo(map);
 // Accessing the airport GeoJSON URL
 let airportData =
-  "https://raw.githubusercontent.com/poboisvert/Mapping_Earthquakes/Mapping_GeoJSON_Points/main/majorAirports.json";
+  "https://raw.githubusercontent.com/poboisvert/Mapping_Earthquakes/main/Mapping_GeoJSON_Points/static/js/majorAirports.json";
 
-// Confirm import
-console.log(airportData);
+//console.log(airportData);
 
 // Grabbing our GeoJSON data.
 d3.json(airportData).then(function (data) {
