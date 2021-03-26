@@ -42,13 +42,13 @@ let map = L.map("mapid", {
 // Pass our map layers into our layers control and add the layers control to the map.
 L.control.layers(baseMaps).addTo(map);
 // Accessing the airport GeoJSON URL
-// Accessing the Toronto neighborhoods GeoJSON URL.
 let torontoHoods =
-  "https://raw.githubusercontent.com/poboisvert/Mapping_Earthquakes/main/torontoNeighborhoods.json";
+  "https://raw.githubusercontent.com/<GitHub_name>/Mapping_Earthquakes/main/torontoNeighborhoods.json";
+
 //console.log(airportData);
 
 // Grabbing our GeoJSON data.
-d3.json(torontoHoods).then(function (data) {
+d3.json(torontoData).then(function (data) {
   console.log(data);
   // Creating a GeoJSON layer with the retrieved data.
   L.geoJson(data, {
