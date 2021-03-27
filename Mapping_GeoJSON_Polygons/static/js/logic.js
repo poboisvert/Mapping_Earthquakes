@@ -34,9 +34,9 @@ let baseMaps = {
 
 // Create the map object with center, zoom level and default layer.
 let map = L.map("mapid", {
-  center: [43.7, -79.3], // Toronto zoom
+  center: [43.7, -79.3], // Toronto zoom
   zoom: 11,
-  layers: [dark], // Select the theme dark or streets
+  layers: [dark], // Select the theme dark or streets
 });
 
 // Pass our map layers into our layers control and add the layers control to the map.
