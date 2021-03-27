@@ -5,6 +5,7 @@ __pycache__/
 
 # C extensions
 *.so
+
 .DS_Store
 
 Earthquake_Challenge/static/js/config.js
@@ -13,6 +14,7 @@ Mapping_GeoJSON_Linestrings/static/js/config.js
 Mapping_GeoJSON_Points/static/js/config.js
 Mapping_GeoJSON_Polygons/static/js/config.js
 Mapping_Single_Points/static/js/config.js
+
 
 # Distribution / packaging
 .Python
