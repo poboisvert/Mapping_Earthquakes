@@ -16,8 +16,8 @@ let streets = L.tileLayer(
 // streets.addTo(map);
 
 // We create the dark view tile layer that will be an option for our map.
-let dark = L.tileLayer(
-  "https://api.mapbox.com/styles/v1/mapbox/dark-v10/tiles/{z}/{x}/{y}?access_token={accessToken}",
+let satelliteStreets = L.tileLayer(
+  "https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v11/tiles/{z}/{x}/{y}?access_token={accessToken}",
   {
     attribution:
       'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -28,15 +28,15 @@ let dark = L.tileLayer(
 
 // Create a base layer that holds both maps.
 let baseMaps = {
-  Street: streets,
-  Dark: dark,
+  Streets: streets,
+  Satellite: satelliteStreets,
 };
 
 // Create the map object with center, zoom level and default layer.
 let map = L.map("mapid", {
-  center: [43.7, -79.3], // Toronto zoom
-  zoom: 11,
-  layers: [dark], // Select the theme dark or streets
+  center: [39.5, -98.5], // Toronto zoom
+  zoom: 3,
+  layers: [satelliteStreets], // Select the theme satelliteStreets or streets
 });
 
 // Pass our map layers into our layers control and add the layers control to the map.
@@ -47,21 +47,11 @@ let torontoHoods =
 
 //console.log(airportData);
 
-// Grabbing our GeoJSON data.
-d3.json(torontoHoods).then(function (data) {
-  console.log(data);
+// Retrieve the earthquake GeoJSON data.
+d3.json(
+  "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
+).then(function (data) {
   // Creating a GeoJSON layer with the retrieved data.
-  L.geoJson(data, {
-    style: {
-      color: "blue",
-      fillColor: "yellow",
-      weight: 1,
-    },
-    onEachFeature: function (feature, layer) {
-      console.log(layer);
-      layer.bindPopup(
-        "<h3>Neighborhood: " + layer.feature.properties.AREA_NAME + "</h3>"
-      );
-    },
-  }).addTo(map);
+  L.geoJson(data).addTo(map);
+  console.log(data);
 });
